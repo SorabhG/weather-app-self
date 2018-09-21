@@ -13,7 +13,7 @@ class App extends React.Component {
         city: undefined,
         country: undefined,
         humidity: undefined,
-        wind:undefined,
+        wind: undefined,
         description: undefined,
         error: undefined
     }
@@ -32,18 +32,18 @@ class App extends React.Component {
                 city: data.name,
                 country: data.sys.country,
                 humidity: data.main.humidity,
-                wind:data.wind.speed,
+                wind: data.wind.speed,
                 description: data.weather[0].description,
                 error: ""
             });
         }
-        else{
+        else {
             this.setState({
                 temperature: undefined,
                 city: undefined,
                 country: undefined,
                 humidity: undefined,
-                wind:undefined,
+                wind: undefined,
                 description: undefined,
                 error: "please enter Some value"
             });
@@ -55,24 +55,33 @@ class App extends React.Component {
 
         return (
             <div>
-                <Titles/>
-                <Form imakeoneprop={this.getWeather}/>
-                <Weather
-                    temperature={ this.state.temperature}
-                    city={this.state.city}
-                    country={this.state.country}
-                    humidity={this.state.humidity}
-                    wind={this.state.wind}
-                    description={this.state.description}
-                    error={this.state.error}
-
-                />
+                <div className="wrapper">
+                    <div className="main">
+                        <div className="container">
+                            <div className="row">
+                                <div className="col-xs-5 title-con">
+                                    <Titles/>
+                                </div>
+                                <div className="col-xs-7 form-container">
+                                    <Form imakeoneprop={this.getWeather}/>
+                                    <Weather
+                                        temperature={ this.state.temperature}
+                                        city={this.state.city}
+                                        country={this.state.country}
+                                        humidity={this.state.humidity}
+                                        wind={this.state.wind}
+                                        description={this.state.description}
+                                        error={this.state.error}
+                                    />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
-
         );
     }
-
-
 }
+
 
 export  default  App;
